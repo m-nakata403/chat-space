@@ -1,9 +1,27 @@
 .chat-main
   .chat-main__group-info
-    .group-info__left-box
-      .group-info__left-box__current-group
+    .group-info__left
+      .group-info__left__current-group
         techcamp
-      .group-info__left-box__member-list
+      .group-info__left__member-list
         Member : naka
-  .chat-main__message-list
-  .chat-main__message-form
+    .group-info__right
+      .group-info__right__edit-btn
+        =link_to "#", class: "edit-btn" do
+          Edit
+  .chat-main__messages
+    .messages__message
+      .messages__message__user-info
+        .messages__message__user-info__talker
+          naka
+        .messages__message__user-info__date
+          2020/03/18(Wed)
+      .messages__message__text
+        おはよう
+  .chat-main__form
+    .chat-main__form__new-message
+      %input.chat-main__form__new-message__input-box{:name => "text", :placeholder => "type a message", :type => "text", :value => ""}/
+      %label{class: "chat-main__form__new-message__image"}
+        = icon('fas', 'image')
+        %input{type: "file"}
+    %input.chat-main__form__submit-btn{:name => "btn", :placeholder => "", :type => "submit", :value => "Send"}/

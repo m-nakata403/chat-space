@@ -16,7 +16,7 @@
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
-    .group-info__left {
+    &__left {
       height: 100%;
       &__current-group{
         color: #333333;
@@ -26,7 +26,7 @@
         color: #999999;
       }
     }
-    .group-info__right {
+    &__right {
       width: 72px;
       padding: 28px 0;
       &__edit-btn {
@@ -42,7 +42,7 @@
     width: 100%;
     height: calc(100vh - 190px);
     padding: 35px 0 0 40px;
-    .messages__message {
+    &__message {
 
       &__user-info {
         display: flex;

@@ -70,6 +70,7 @@
     align-items: center;
     padding: 0 40px;
     &__new-message {
+      display: flex;
       width: 100%;
       height: 50px;
       margin-right: 15px;
@@ -92,7 +93,7 @@
     &__submit-btn {
       background-color: #38aef0;
       height: 50px;
-      margin: 20px 0;
+      margin:  0 0 20px;
       padding: 0 30px;
       color: #fafafa;
     }

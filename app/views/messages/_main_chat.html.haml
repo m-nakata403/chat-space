@@ -2,26 +2,23 @@
   .chat-main__group-info
     .chat-main__group-info__left
       .chat-main__group-info__left__current-group
-        techcamp
+        = @group.name
       .chat-main__group-info__left__member-list
-        Member : naka
+        Member：
+        - @group.users.each do |user|
+          = user.name
     .chat-main__group-info__right
       .chat-main__group-info__right__edit-btn
-        =link_to "#", class: "edit-btn" do
+        = link_to edit_group_path(@group.id), class: "edit-btn" do
           Edit
   .chat-main__messages
     .chat-main__messages__message
-      .chat-main__messages__message__user-info
-        .chat-main__messages__message__user-info__talker
-          naka
-        .chat-main__messages__message__user-info__date
-          2020/03/18(Wed)
-      .chat-main__messages__message__text
-        おはよう
+      = render @messages
   .chat-main__form
-    .chat-main__form__new-message
-      %input.chat-main__form__new-message__input-box{:name => "text", :placeholder => "type a message", :type => "text", :value => ""}/
-      %label{class: "chat-main__form__new-message__image"}
-        = icon('fas', 'image')
-        %input{type: "file"}
-    %input.chat-main__form__submit-btn{:name => "btn", :placeholder => "", :type => "submit", :value => "Send"}/
+    = form_for [@group, @message], html:{class:"chat-main__form__new-message"} do |f|
+      .chat-main__form__new-message
+        = f.text_field :content, class: 'chat-main__form__new-message__input-box', placeholder: 'type a message'
+        = f.label :image, class: 'chat-main__form__new-message__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'chat-main__form__submit-btn'

@@ -3,16 +3,16 @@ $(function(){
    if ( message.image ) {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="message__upper-message">
+           <div class="message__upper-message__user-name">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
+           <div class="message__upper-message__date">
              ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
+         <div class="message__lower-message">
+           <p class="message__lower-message__content">
              ${message.content}
            </p>
          </div>
@@ -22,16 +22,16 @@ $(function(){
    } else {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="message__upper-message">
+           <div class="message__upper-message__user-name">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
+           <div class="message__upper-message__date">
              ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
+         <div class="message__lower-message">
+           <p class="message__lower-message__content">
              ${message.content}
            </p>
          </div>
@@ -80,7 +80,7 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        $('.chat-main__messages').append(insertHTML);
+        $('.chat-main__messages__message').append(insertHTML);
         $('.chat-main__messages').animate({ scrollTop: $('.chat-main__messages')[0].scrollHeight});
       }
     })
